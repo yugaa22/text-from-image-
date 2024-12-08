@@ -1,8 +1,14 @@
 import pytesseract
 from PIL import Image 
 
-pytesseract.pytesseract.tesseract_cmd=r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"
+# Set the path for tesseract (for macOS)
+pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
+# Open the image file
+img = Image.open('1.jpg')
 
-img=Image.open('1.jpg')
-text=pytesseract.image_to_string(img)
+# Perform OCR to extract text from the image
+text = pytesseract.image_to_string(img)
+
+# Print the extracted text
 print(text)
+
